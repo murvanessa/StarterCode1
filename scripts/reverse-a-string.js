@@ -3,7 +3,15 @@
 console.log('-- loading: reverseString');
 
 
-function reverseString() { }
+function reverseString(arg1) { 
+  
+  let reverse = '';
+  for (let i = arg1.length - 1; i >= 0; i--) {
+      reverse += arg1[i];
+    }
+    if(typeof reverse !== 'string'){throw new Error()};
+  return reverse;
+}
 
 
 {
@@ -46,12 +54,21 @@ function reverseStringHandler() {
   debugger;
 
   // read user input
+  const str = document.getElementById('inputstring').value;
+  const reversestring = document.getElementById('resultstring');
+  if(typeof str !== 'string'){throw new TypeError("Error: "+ type+"expected, "+"typeof str+ given."); }
 
   // core logic
-  const result = reverseString(str);
+  const reverse = reverseString(str);
+  let resultat = reverse;
 
   // display for use
+  resultstring.innerText = resultat;
+
+  
 
   // log for developers
+
+  console.log(resultat);
 }
 
