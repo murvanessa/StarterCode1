@@ -3,7 +3,16 @@
 console.log('-- loading: repeatStringNumTimes');
 
 
-function repeatStringNumTimes() { }
+function repeatStringNumTimes(arg1, arg2) { 
+
+  let repeat = '';
+  for(let i = 0; i < arg2; i++){
+    repeat += arg1;
+  }
+
+  if (typeof repeat !== 'string') { throw new TypeError() };
+      return repeat;
+}
 
 
 {
@@ -58,12 +67,23 @@ function repeatStringNumTimesHandler() {
   debugger;
 
   // read user input
+  const str = document.getElementById('inputstring').value;
+  
+  const num = document.getElementById('numberoftime').value;
+  const repeatstring = document.getElementById('resultstring');
+  if(typeof str !== 'string'){throw new TypeError("Error: "+ type+"expected, "+"typeof str+ given."); }
 
   // core logic
-  const result = repeatStringNumTimes(str, num);
+  const repeatString = repeatStringNumTimes(str, num);
+  let resultat = repeatString ;
 
   // display for use
+  resultstring.innerText = resultat;
+
+  
 
   // log for developers
+
+  console.log(resultat);
 }
 
